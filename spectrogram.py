@@ -16,6 +16,7 @@ audio_file=glob(data+'/*.wav')
 # The following code generates the spectrogram for an audio signal and saves in the desired directory.
 
 for file in range(0, len(audio_file), 1):
+    x,sr=lr.load(audio_file[file])
     X = librosa.stft(x)
     Xdb = librosa.amplitude_to_db(abs(X))
     plt.figure(figsize=(14, 5))
